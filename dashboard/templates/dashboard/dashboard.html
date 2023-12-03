@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'dashboard/css/styles.css' %}">
+<section>
+    <div class="card-ctn">
+        {% for confession in confessions %}
+                <div class="card">
+                    <div class="heading">
+                        <strong>{{confession.subject}}</strong>
+                        <div id="time">@{{ confession.user }}<span> | {{ confession.pub_date|date:"F j, Y H:i" }}</span></div>
+                    </div>
+                    <p>{{ confession.content }}</p>
+                    {{confession.comments}}
+                    <div class="foot">
+                        <div class="likes">
+                            <a><img width="20" height="20" src="https://img.icons8.com/ios/50/like--v1.png" alt="like"/></a>
+                            <label>{{ confession.likes }}</label>
+                        </div>
+                        <div class="likes">
+                            <a><img width="20" height="20" src="https://img.icons8.com/ios/50/--broken-heart--v1.png" alt="unlike"/></a>
+                            <label>{{ confession.dislikes }}</label>
+                        </div>
+                        
+                    </div>
+                </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+{% endblock %}

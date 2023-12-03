@@ -1,0 +1,157 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.body{
+    background-color: #0C3D4F;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2B3336;
+    height: 70px;
+    width: 100%;
+    z-index: 3; /* Set a higher z-index for the navbar */
+    position: relative;
+}
+
+nav h1{
+    font-family: 'Abril Fatface', serif;
+    font-size: 34px;
+    padding-left: 10px;
+    width: fit-content;
+    text-align: center;
+    color: white;
+}
+nav h1 span{
+    color: red;
+}
+nav div{
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    padding-right: 10px;
+}
+nav div button{
+    color: white;
+    height: 40px;
+    width: 100px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: #187CA1;
+}
+
+.bg{
+    height: 90vh;
+    width: 100%;
+    margin: 0;
+    position: relative;
+}
+.bg::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../svg/background.svg') center/cover no-repeat fixed;
+    filter: blur(100px); /* Adjust the blur radius as needed */
+    z-index: 1;
+}
+.bg-up {
+    height: 60vh;
+    background-color:rgba(12,61,79,0.5 );
+    box-shadow: 0 3px rgba(0, 0, 0, 0.3);
+    position:relative;
+    color: white;
+    text-align: center;
+    display: flex;
+    padding-left: 20px;
+    padding-right: 10vw;
+    gap:10px;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3; /* Set a higher z-index for the content on top of the blurred background */
+}
+
+.detail{
+    width: 40%;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.detail .img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 400px;
+    overflow: hidden;
+    position: relative;
+}
+.detail .img img{
+    width: auto; /* Make the image fill the container */
+    height: 95%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 80%;
+    width: 400px;
+    background-color: #125D78;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.login-form form{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.login-form  button{
+    color: white;
+    height: 40px;
+    width: 100px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: #187CA1;
+    margin-bottom: 20px;
+}
+
+.login-form form input{
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 20px;
+    width: 95%;
+    height: 40px;
+}
+
+.login-form form hr{
+    height: 5px;
+    width: 95%;
+}
+
+.login-form form #login{
+    width: 95%;
+}
+.login-form form #signup{
+    width: 50%;
+}
+
+
+

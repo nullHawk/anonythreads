@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.body{
+    background-color: #0C3D4F;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2B3336;
+    height: 70px;
+    width: 100%;
+    z-index: 3; /* Set a higher z-index for the navbar */
+    position: relative;
+}
+
+nav h1{
+    font-family: 'Abril Fatface', serif;
+    font-size: 34px;
+    padding-left: 10px;
+    width: fit-content;
+    text-align: center;
+    color: white;
+}
+nav h1 span{
+    color: red;
+}
+nav div{
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    padding-right: 10px;
+}
+nav div button{
+    color: white;
+    height: 40px;
+    width: 100px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: #187CA1;
+}
+
+.bg{
+    height: 90vh;
+    width: 100%;
+    margin: 0;
+    position: relative;
+}
+.bg::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('home/svg/background.svg') center/cover no-repeat fixed;
+    filter: blur(100px); /* Adjust the blur radius as needed */
+    z-index: 1;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:visited{
+    text-decoration: none;
+    color: white;
+}
