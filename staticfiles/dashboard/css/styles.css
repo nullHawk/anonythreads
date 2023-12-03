@@ -1,4 +1,66 @@
-.class-ctn{
+section{
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card-ctn{
+    margin-top: 30px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-evenly;
     flex-wrap: wrap;
+    z-index: 3;
+    position:relative;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 15px;
+    background-color: rgba(250,250,250,0.5);
+    backdrop-filter: blur(10px);
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    width:300px;
+    height: 150px;
+}
+.card .heading{
+    align-self: flex-start;
+    line-height: 0.7lh;
+}
+.card .heading strong{
+    color: #2B3336;
+    font-size: 20px;
+}
+.card .heading #time span{
+    color: gray;
+    font-size: 10px;
+}
+.card .heading #time{
+    color: gray;
+    font-size: 15px;
+}
+
+.card p{
+    color: #2B3336;
+    font-size: 15px;
+}
+.card .foot{
+    bottom: 0;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+#like_btn{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+#like_btn:hover{
+    background-color:#187CA1;
 }

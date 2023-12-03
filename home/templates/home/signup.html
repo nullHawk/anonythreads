@@ -4,17 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Anony Threads</title>
+    {% load static %}
 </head>
 <style>
     body{
         background-color: #187CA1;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
-    form h1{
+    body {
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+        height: 100vh;
+    }
+    
+    @keyframes gradient {
+        0% {
+        background-position: 0% 50%;
+        }
+        50% {
+        background-position: 100% 50%;
+        }
+        100% {
+        background-position: 0% 50%;
+        }
+    }
+    .bg{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 90vh;
+        width: 100%;
+        margin: 0;
+        position: relative;
+    }
+    .bg::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        
+        /* background: url("{% static 'home/svg/background.svg' %}") center/cover no-repeat fixed; */
+        filter: blur(100px); /* Adjust the blur radius as needed */
+        z-index: 1;
     }
     form{
         display: flex;
@@ -24,31 +58,48 @@
         align-items: center;
         height: 700px;
         width: 400px;
-        background-color: #125D78;
+        background-color: rgba(0,0,0,0.3);
         border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        z-index: 3;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    form button{
+        color: white;
+        height: 40px;
+        width: 200px;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        background-color: rgba(0,0,0,0.6);
     }
     form input{
         border: none;
         border-radius: 5px;
         padding: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
         font-size: 20px;
-        width: 95%;
+        width: 90%;
         height: 40px;
+    }
+    form button:hover{
+        background-color: rgb(0,0,0,0.5)
     }
 </style>
 <body>
-    <form method="post">
-        {% csrf_token %}
-        <h1>Sign Up</h1>
-        {{ form.username }}
-        {{ form.email }}
-        {{ form.first_name }}
-        {{ form.last_name }}
-        {{ form.password1 }}
-        {{ form.password2 }}
-        <button type="submit">Sign up</button>
-    </form>
+    <section class="bg">
+            <form method="post">
+                {% csrf_token %}
+                <h1>Sign Up</h1>
+                {{ form.username }}
+                {{ form.email }}
+                {{ form.first_name }}
+                {{ form.last_name }}
+                {{ form.password1 }}
+                {{ form.password2 }}
+                <button type="submit">Sign up</button>
+            </form>
+    </section>
 </body>
 </html>
 

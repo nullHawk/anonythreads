@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'dashboard/css/create_conf.css' %}">
+<section class="'bg">
+    <div class="card">
+        <form method="post">
+            {% csrf_token %}
+            <h1>Confess</h1>
+            {{ form.subject }}
+            {{ form.content }}
+            <button type="submit">Confess</button>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

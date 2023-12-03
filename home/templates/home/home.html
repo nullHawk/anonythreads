@@ -28,16 +28,16 @@
         <section class="bg-up">
             <div class="detail">
                 <div class="img">
-                    <img src="{% static 'logos/logo_trans_org.png' %}" alt="Anony">
+                    <img src="{% static 'logos/logo_trans.png' %}" alt="Anony">
                 </div>
                 <text>"Encrypt Your Confessions, Decrypt Your Thoughts – Anonymity Meets Technology."</text>
             </div>
             <div class="login-form">
-                <form action="" method="post">
+                <form method="post">
                     {% csrf_token %}
                     <input type="text" name="username" id="username" placeholder="Username">
                     <input type="password" name="password" id="password" placeholder="Password">
-                    <button id="login">Login</button>
+                    <button type="submit" id="login">Login</button>
                     <hr>
                 </form>
                 <a href="{% url 'signup' %}">

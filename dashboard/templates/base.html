@@ -15,13 +15,14 @@
     <nav>
         <h1><span>Anony </span>Threads</h1>
         <div>
-            <a href="">Home</a>
+            <a href="{% url 'dashboard' %}">Home</a>
             <a href="">Profile</a>
-            <a href="">Confess</a>
+            <a href="{% url 'create_conf' %}">Confess</a>
             <a href="">About</a>
             <a href="{% url 'logout' %}">Logout</a>
         </div>
     </nav>
+        
     <section class="bg">
         {% block content %}
         {% endblock %}

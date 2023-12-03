@@ -7,22 +7,23 @@
         {% for confession in confessions %}
                 <div class="card">
                     <div class="heading">
-                        <strong>{{confession.subject}}</strong>
+                        <label hidden="true">{{ confession.pk }}</label>
+                        <strong><a href="{% url 'confess_detail' confession.id %}">{{confession.subject}}</a></strong>
                         <div id="time">@{{ confession.user }}<span> | {{ confession.pub_date|date:"F j, Y H:i" }}</span></div>
                     </div>
-                    <p>{{ confession.content }}</p>
+                    <p>{{ confession.content|slice:"0:63" }} {% if confession.content|length > 63 %}...{%endif%}</p>
                     {{confession.comments}}
-                    <div class="foot">
-                        <div class="likes">
-                            <a><img width="20" height="20" src="https://img.icons8.com/ios/50/like--v1.png" alt="like"/></a>
-                            <label>{{ confession.likes }}</label>
-                        </div>
-                        <div class="likes">
-                            <a><img width="20" height="20" src="https://img.icons8.com/ios/50/--broken-heart--v1.png" alt="unlike"/></a>
-                            <label>{{ confession.dislikes }}</label>
-                        </div>
-                        
-                    </div>
+                        <form method="post" action="{% url 'like' confession.id %}" class="foot">
+                            {% csrf_token %}
+                            <div class="likes">
+                                <button id="like_btn" type="submit" name="action" value="like"><img width="20" height="20" src="https://img.icons8.com/ios/50/like--v1.png" alt="like"/></button>
+                                <label>{{ confession.likes }}</label>
+                            </div>
+                            <div class="likes">
+                                <button id="like_btn" type="submit" name="action" value="dislike"><img width="20" height="20" src="https://img.icons8.com/ios/50/--broken-heart--v1.png" alt="unlike"/></button>
+                                <label>{{ confession.dislikes }}</label>
+                            </div>
+                        </form>
                 </div>
         {% endfor %}
     </div>

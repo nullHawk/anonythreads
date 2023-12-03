@@ -1,6 +1,12 @@
 <svg width="1280" height="832" viewBox="0 0 1280 832" fill="none" xmlns="http://www.w3.org/2000/svg">
+
 <g filter="url(#filter0_f_7_66)">
-<ellipse cx="542.5" cy="281" rx="326.5" ry="288" fill="#187CA1"/>
+<ellipse cx="542.5" cy="281" rx="326.5" ry="288" fill="#187CA1">
+<animateMotion
+      dur="10s"
+      repeatCount="indefinite"
+      path="M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z" />
+</ecllipse>
 </g>
 <g filter="url(#filter1_f_7_66)">
 <ellipse cx="1323.5" cy="323" rx="326.5" ry="288" fill="#187CA1"/>
