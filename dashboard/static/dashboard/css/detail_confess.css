@@ -1,10 +1,6 @@
-.bg{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.card{
 
+.card{
+    padding:20px;
     background-color: rgba(255,255,255,0.3);
     backdrop-filter: blur(10px);
     border:1px solid rgba(255, 255, 255, 0.18);
@@ -13,38 +9,48 @@
     position:relative;
     border-radius: 10px;
 }
+.heading strong{
+    font-size: 30px;
+    color: white;
+}
+.heading{
+    line-height: 1;
+}
 form{
     color: white;
     align-items: center;
     padding: 20px;
     display: flex;
-    flex-direction: column;
     justify-content: space-evenly;
     gap: 10px;
 }
 form input{
-    border: 1px solid white;
-    height: 50px;
-    border-radius: 5px;
     width: 100%;
     background-color: rgba(255,255,255,0.6);
 }
 
 form textarea{
-    border: 1px solid white;
-    border-radius: 5px;
     width: 100%;
     background-color: rgba(255,255,255,0.6);
 }
+form .likes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 form button{
-    border: 1px solid rgba(255,255,255,0.6);
     color: white;
     height: 40px;
     width: 200px;
     outline: none;
+    border: none;
     border-radius: 5px;
-    background-color: rgb(0,0,0,0.3);
+    background-color: rgb(255,255,255,0.3);
 }
 form button:hover{
     background-color: rgba(0,0,0,0.1)
+}
+.pagination{
+    z-index:3;
+    color: white;
 }

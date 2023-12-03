@@ -3,6 +3,10 @@ section{
     flex-direction: column;
     align-items: center;
 }
+section h1{
+    margin: 20px;
+    color: white;
+}
 .card-ctn{
     margin-top: 30px;
     width: 80%;

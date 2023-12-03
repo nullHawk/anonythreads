@@ -16,9 +16,9 @@
         <h1><span>Anony </span>Threads</h1>
         <div>
             <a href="{% url 'dashboard' %}">Home</a>
-            <a href="">Profile</a>
+            <a href="{% url 'profile' %}">Profile</a>
             <a href="{% url 'create_conf' %}">Confess</a>
-            <a href="">About</a>
+            <a href="{% url 'about' %}">About</a>
             <a href="{% url 'logout' %}">Logout</a>
         </div>
     </nav>
@@ -27,5 +27,6 @@
         {% block content %}
         {% endblock %}
     </section>
+    <footer>Made with ❤️ by Suryansh Shakya</footer>
 </body>
 </html>

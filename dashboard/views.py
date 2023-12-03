@@ -3,14 +3,45 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.urls import reverse
 from django.views import View
+from django.views.generic import ListView
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Confession
 from .forms import ConfessionForm
 from datetime import datetime
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
+
+
 class dashboard(View):
-    def post(self,request, confession_id):
+    template_name = 'dashboard/dashboard.html'
+    paginate_by = 20  # Set the number of items per page
+
+    def get(self, request):
+        if request.user.is_authenticated:
+            confession_list = Confession.objects.all()
+
+            # Create a paginator instance
+            paginator = Paginator(confession_list, self.paginate_by)
+
+            # Get the current page number from the request's GET parameters
+            page = request.GET.get('page')
+
+            try:
+                # Get the Page object for the requested page
+                confessions = paginator.page(page)
+            except PageNotAnInteger:
+                # If the page parameter is not an integer, deliver the first page
+                confessions = paginator.page(1)
+            except EmptyPage:
+                # If the page is out of range (e.g., 9999), deliver the last page
+                confessions = paginator.page(paginator.num_pages)
+
+            return render(request, self.template_name, {'confessions': confessions})
+        else:
+            return HttpResponse("Unauthorized Access")
+
+    def post(self, request, confession_id):
         action = request.POST.get('action')
         confession = Confession.objects.get(pk=confession_id)
         
@@ -29,13 +60,10 @@ class dashboard(View):
         
         confession.save()
 
+        # Redirect to the current page with the pagination
         return redirect("dashboard")
-    def get(self, request):
-        if request.user.is_authenticated:
-            confessions = Confession.objects.all()
-            return render(request, 'dashboard/dashboard.html',{'confessions':confessions})
-        else:
-            return HttpResponse("Unauthorized Acess")
+   
+
         
 
 class create_conf(View):
@@ -83,3 +111,14 @@ class confess_detail(View):
             return render(request, 'dashboard/detail_confess.html',{'confession':confession})
         else:
             return HttpResponse("Unauthorized Acess")
+
+def about(request):
+    return render(request, 'dashboard/about.html')
+
+def profile(request):
+    user = request.user
+
+    user_posts = Confession.objects.filter(user=user)
+
+    context = {'user_posts': user_posts}
+    return render(request, 'dashboard/profile.html', context)

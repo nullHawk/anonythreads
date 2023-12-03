@@ -30,6 +30,14 @@ section{
     align-self: flex-start;
     line-height: 0.7lh;
 }
+a{
+    color: white;
+    text-decoration: none;
+}
+a:visited{
+    color: white;
+    text-decoration: none;
+}
 .card .heading strong{
     color: #2B3336;
     font-size: 20px;
@@ -63,4 +71,10 @@ section{
 
 #like_btn:hover{
     background-color:#187CA1;
+}
+.pagination{
+    margin: 20px;
+    z-index:3;
+    color: white;
+    gap: 5px;
 }

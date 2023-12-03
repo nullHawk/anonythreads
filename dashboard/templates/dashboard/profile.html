@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'dashboard/css/profile.css' %}">
+<section>
+    <h1>{{ user }}'s Posts</h1>
+    <div class="card-ctn">
+    {% for post in user_posts %}
+                <div class="card">
+                    <div class="heading">
+                        <label hidden="true">{{ post.pk }}</label>
+                        <strong><a href="{% url 'confess_detail' post.id %}">{{post.subject}}</a></strong>
+                        <div id="time">@{{ post.user }}<span> | {{ post.pub_date|date:"F j, Y H:i" }}</span></div>
+                    </div>
+                    <p>{{ post.content|slice:"0:63" }} {% if confession.content|length > 63 %}...{%endif%}</p>
+                    {{post.comments}}
+                        <form class="foot">
+                            <div class="likes">
+                                <button id="like_btn" type="submit" name="action" value="like"><img width="20" height="20" src="https://img.icons8.com/ios/50/like--v1.png" alt="like"/></button>
+                                <label>{{ post.likes }}</label>
+                            </div>
+                            <div class="likes">
+                                <button id="like_btn" type="submit" name="action" value="dislike"><img width="20" height="20" src="https://img.icons8.com/ios/50/--broken-heart--v1.png" alt="unlike"/></button>
+                                <label>{{ post.dislikes }}</label>
+                            </div>
+                        </form>
+                </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+{% endblock %}

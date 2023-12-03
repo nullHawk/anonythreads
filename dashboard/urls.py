@@ -8,4 +8,6 @@ urlpatterns = [
     path('like/<int:confession_id>/',views.dashboard.as_view(),name='like'),
     path('create_conf/',views.create_conf.as_view(),name="create_conf"),
     path('logout/', LogoutView.as_view(), name='logout'),
+    path('about/', views.about, name='about'),
+    path('profile/',views.profile, name='profile')
 ]

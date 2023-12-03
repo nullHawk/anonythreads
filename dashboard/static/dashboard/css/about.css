@@ -1,0 +1,10 @@
+.about-section{
+    color: white;
+    padding:20px;
+    background-color: rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    z-index: 3;
+    position:relative;
+}
